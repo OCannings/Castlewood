@@ -25,6 +25,12 @@ module.exports = function(grunt) {
     site  : grunt.file.readYAML('_config.yml'),
     bootstrap: '<%= vendor %>/bootstrap',
 
+    'gh-pages': {
+      options: {
+        base: '_gh_pages'
+      },
+      src: ['**']
+    },
 
     // Before generating any new files, remove files from previous build.
     clean: {
@@ -124,6 +130,7 @@ module.exports = function(grunt) {
   });
 
   // Load npm plugins to provide necessary tasks.
+  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
